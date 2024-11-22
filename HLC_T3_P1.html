@@ -10,6 +10,90 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <script>
+        function showTabById(tabId) {
+          const tabs = document.querySelectorAll('.tab');
+          tabs.forEach(tab => {
+            tab.classList.toggle('active', tab.id === tabId);
+          });
+        }
     
+        document.addEventListener('DOMContentLoaded', () => {
+          const buttons = document.querySelectorAll('.menu button');
+          buttons.forEach(button => {
+            button.addEventListener('click', () => {
+              const tabId = button.id.replace('btn', 'tab');
+              showTabById(tabId);
+            });
+          });
+        });
+      </script>
+      <div class="box">
+      <nav>
+        <a id="btn1" href="#tab1">Inicio</a>
+        <a id="btn2" href="#tab2">Información</a>
+        <a id="btn3" href="#tab3">Formulario</a>
+      </nav>
+      </div>
+      <div class="menu">
+        <div id="tab1" class="tab" class="active">
+            <h1>Inicio</h1>
+            <p>Hola, mi nombre es <u class="subrayado">Eduardo Rojo Trujillo</u> y esta es la Práctica Evaluable 1 de HLC.</p>
+            <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/0*XFKvzn30CglSpb3o" width="400" height="300">
+        </div>
+        <div id="tab2" class="tab">
+            <h1>Información</h1>
+            <p>El examen de HLC consta de las siguientes partes:</p>
+            <ul>
+                <li>Un menú lateral</li>
+                <li>Un formulario</li>
+                <li>Varios elementos HTML como:</li>
+                <ul>
+                    <li>Titulos.</li>
+                    <li>Imagenes.</li>
+                    <li>Listas.</li>
+                </ul>
+            </ul>
+            <p>Algunos datos importantes sobre la practica son:</p>
+            <table border="1">
+                <thead class="fondo">
+                    <th>Forma de entrega</th>
+                    <th>Tiempo</th>
+                    <th>Calificación</th>    
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            GitHub y GitHub Pages
+                        </td>
+                        <td>
+                            2 horas
+                        </td>
+                        <td>
+                            Numérica
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div><br>
+        <div id="tab3" class="tab">
+            <h1>Formulario</h1>
+            <form>
+                <div class="nombre">
+                <label for="nombre"><b>Nombre:</b></label><br>
+                <input type="text" id="nombre" required minlength="3" placeholder="Ingresa tu nombre"><br>
+                </div>
+                <div class="email">
+                <label for="email"><b>Correo electrónico:</b></label><br>
+                <input class="email" type="email" id="email" required placeholder="Ingresa tu correo"><br>
+                </div>
+                <div class="mensaje">
+                <label for="mensaje"><b>Mensaje:</b></label><br>
+                <textarea class="mensaje" id="mensaje" name="mensaje" rows="5" cols="20" placeholder="Escribe tu mensaje aquí"></textarea><br>
+                </div>
+                <button class="Enviar">Enviar</button>
+            </form>
+        </div>
+      </div>
 </body>
 </html>
